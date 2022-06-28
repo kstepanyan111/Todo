@@ -1,0 +1,63 @@
+.title{
+  text-align: center;
+}
+.newList{
+  list-style:none;
+  text-align: center;
+}
+.newList li{
+  padding:10px;
+}
+.newList input{
+  margin:10px;
+  width: 100px;
+}
+.list{
+  display: flex;
+}
+.author{
+  font-style: italic;
+  font-weight: bold;
+}
+.quote{
+  font-style: italic;
+  color: darkgrey;
+}
+button {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  display: none;
+}
+.edit button{
+  display: block;
+}
+#newButton{
+  display: block;
+  align-items: center;
+  width: 20%;
+}
+.newListdiv{
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+.currenQuote:hover button{
+ display: block;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
