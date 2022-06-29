@@ -40,7 +40,7 @@ const NameForm = () => {
     useEffect(() => {
         getData()
             .then(res => res.json())
-            .then(res => setData(res.quotes))
+            .then(res => setData(res.quote))
     }, [])
 
     /** Create New Quote **/
@@ -54,7 +54,7 @@ const NameForm = () => {
             .then(res => {
                 setData(prevState => [
                     ...prevState,
-                    res.quotes
+                    res.quote
                 ])
             })
         setFormValue({
@@ -104,37 +104,35 @@ const NameForm = () => {
         setEditValue({})
     }
 
-
     return (
         <>
             <div className="newListdiv">
-                <ul className="newList">
-                    <li><label>
+                <div className="newList">
+                    <div><strong>
                         Quote text:
-                    </label>
+                    </strong>
                         <textarea
-                            value={formValue.name}
-                            onChange={(e) => handlerInputChange("name", e.target.value)}
-                        />
-                    </li>
-                    <li><label>
-                        Author name:
-                    </label>
-                        <input
-                            type="text"
                             value={formValue.quote}
                             onChange={(e) => handlerInputChange("quote", e.target.value)}
                         />
-                    </li>
-
-                </ul>
+                    </div>
+                    <div><strong>
+                        Author name:
+                    </strong>
+                        <input
+                            type="text"
+                            value={formValue.name}
+                            onChange={(e) => handlerInputChange("name", e.target.value)}
+                        />
+                    </div>
+                </div>
                 <button id = 'newButton' type={"submit"} onClick={postQuotes}>
-                    New
+                    Add
                 </button>
             </div>
             <ul>
                 {data.map((quote, index) => (
-                    <li className='currenQuote'>
+                    <li className='currenQuote' key={index}>
                         <div key={index} className='list'>
                             <p className='quote'>"{quote.quote}"</p>
                             <p className='author'>-{quote.name}</p>
@@ -145,26 +143,26 @@ const NameForm = () => {
                 ))}
             </ul>
 
-
             {
                 isEditShown ? (
                     <div className="edit">
-                        <label>
+                        <div><strong>
                             Quote text:
-                            <input
-                                type="text"
+                        </strong>
+                            <textarea
                                 value={editValue.name}
                                 onChange={(e) => handlerEditInputChange("name", e.target.value)}
                             />
-                        </label>
-                        <label>
+                        </div>
+                        <div><strong>
                             Author name:
+                        </strong>
                             <input
                                 type="text"
                                 value={editValue.quote}
                                 onChange={(e) => handlerEditInputChange("quote", e.target.value)}
                             />
-                        </label>
+                        </div>
                         <button onClick={updateQuote}>Save</button>
                         <button onClick={handlerCancelEdit}>Cancel</button>
                     </div>

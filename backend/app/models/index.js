@@ -1,9 +1,9 @@
 const dbConfig = require("../config/db.config.js");
 const mongoose = require("mongoose");
-const Test = require("./test.model");
+const Quote = require("./quote.model");
 mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
-db.tests = new Test();
+db.quotes = new Quote();
 module.exports = db;

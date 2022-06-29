@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const Test = new Schema({
+const Quote = new Schema({
     name: String,
     quote: String
 });
 
-const Model = mongoose.model('test', Test);
+const Model = mongoose.model('test', Quote);
 
 module.exports = Model;
